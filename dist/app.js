@@ -3,6 +3,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import authRoutes from "./routes/auth.routes";
 import todoRoutes from "./routes/todo.routes";
+import adminRoutes from "./routes/admin.routes";
 import { errorMiddleware } from "./middlewares/error.middleware";
 const app = express();
 // Middleware
@@ -17,6 +18,7 @@ app.get("/api/health", (req, res) => {
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/todos", todoRoutes);
+app.use("/api/admin", adminRoutes);
 // 404 handler
 app.use((req, res) => {
     res.status(404).json({
